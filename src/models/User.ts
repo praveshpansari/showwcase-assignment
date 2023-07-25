@@ -22,6 +22,10 @@ class User
   public password!: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
+  public validatePassword!: (
+    hash: string,
+    password: string
+  ) => Promise<boolean>;
 }
 
 User.init(
@@ -61,5 +65,9 @@ User.init(
 User.beforeCreate(async (user: User) => {
   user.password = await bcrypt.hash(user.password, 10);
 });
+
+User.prototype.validatePassword = async (hash: string, password: string) => {
+  return await bcrypt.compare(password, hash);
+};
 
 export default User;

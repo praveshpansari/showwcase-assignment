@@ -28,8 +28,4 @@ export default class UserService {
     const user = await User.findByPk(id);
     return user;
   };
-
-  validateUser = async (hash: string, password: string) => {
-    return await bcrypt.compare(password, hash);
-  };
 }

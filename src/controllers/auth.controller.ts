@@ -29,7 +29,7 @@ export default class AuthController {
       });
     }
 
-    if (!(await this.userService.validateUser(user.password, password))) {
+    if (!(await user.validatePassword(user.password, password))) {
       return res
         .status(401)
         .json({ name: "AuthenticationError", message: "Invalid credentials." });
