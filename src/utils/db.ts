@@ -15,6 +15,4 @@ sequelize
     console.error("Unable to connect to the database:", err);
   });
 
-sequelize.model;
-
 export default sequelize;

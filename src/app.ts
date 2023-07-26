@@ -3,7 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { errorHandler } from "./middleware/errorHandler";
 import { requestLogger } from "./middleware/requestLogger";
-import sequelize from "./db";
+import sequelize from "./utils/db";
 import authRoutes from "./routes/auth.route";
 import userRoutes from "./routes/user.route";
 

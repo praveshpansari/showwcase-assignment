@@ -1,7 +1,5 @@
-// models/user.ts
-
 import { Model, DataTypes, Optional } from "sequelize";
-import { sequelize } from "../db";
+import { sequelize } from "../utils/db";
 import bcrypt from "bcrypt";
 
 export interface UserAttributes {
@@ -10,7 +8,6 @@ export interface UserAttributes {
   password: string;
 }
 
-// We have included `Optional` here to indicate that some attributes are optional during creation
 interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
 
 class User
