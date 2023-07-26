@@ -11,7 +11,7 @@ export default class AuthController {
   register = async (req: Request, res: Response) => {
     const user = await this.userService.createUser(req.body);
     const token = this.authService.generateToken({ id: user.id });
-    res.status(200).send({
+    res.status(201).send({
       message: "User successfully created.",
       id: user.id,
       token: token,

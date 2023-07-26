@@ -8,17 +8,18 @@ export const errorHandler = (
   next: NextFunction
 ) => {
   console.error("Error:", error);
-  const statusCode = res.statusCode ? res.statusCode : 500;
-  res.status(statusCode);
 
-  if (error instanceof ValidationError)
+  if (error instanceof ValidationError) {
+    res.status(400);
     res.json({
       name: "ValidationError",
       message: error.errors.map((err) => err.message),
     });
-  else
+  } else {
+    res.status(res.statusCode ?? 500);
     res.json({
       name: error.name,
       message: error.message,
     });
+  }
 };

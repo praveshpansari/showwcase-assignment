@@ -4,6 +4,9 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "strict": true,
+        "types": [
+            "jest"
+        ],
         "module": "CommonJS",
         "moduleResolution": "node",
         "experimentalDecorators": true,
