@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import AuthService from "../services/auth.service";
 import UserService from "../services/user.service";
 
@@ -8,7 +8,7 @@ export default class AuthController {
     private readonly userService: UserService
   ) {}
 
-  registerUser = async (req: Request, res: Response, next: NextFunction) => {
+  register = async (req: Request, res: Response) => {
     const user = await this.userService.createUser(req.body);
     const token = this.authService.generateToken({ id: user.id });
     res.status(200).send({
@@ -18,9 +18,9 @@ export default class AuthController {
     });
   };
 
-  loginUser = async (req: Request, res: Response) => {
+  login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
-    const user = await this.userService.findUserByEmail(email);
+    const user = await this.userService.getUserByEmail(email);
 
     if (!user) {
       return res.status(404).json({

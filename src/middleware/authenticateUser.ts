@@ -3,11 +3,7 @@ import jwt from "jsonwebtoken";
 
 const secretKey = process.env.SECRET || "defaultKey";
 
-export const authenticateUser = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+const authenticateUser = (req: Request, res: Response, next: NextFunction) => {
   // Get the token from the request header
   const token = req.header("Authorization")?.replace("Bearer ", "");
 
@@ -27,3 +23,5 @@ export const authenticateUser = (
     return res.status(401).json({ error: "Invalid authentication token" });
   }
 };
+
+export default authenticateUser;

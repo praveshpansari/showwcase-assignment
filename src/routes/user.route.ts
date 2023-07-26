@@ -1,17 +1,15 @@
 import container from "../container";
 import express from "express";
-import { fetchRandomUser } from "../services/thirdParty.service";
 import UserService from "../services/user.service";
+import asyncHandler from "../middleware/asyncHandler";
+import UserController from "../controllers/user.controller";
 
 const router = express.Router();
 
-const userController = container.resolve<UserService>("UserService");
+const userService = container.resolve<UserService>("UserService");
+const userController = new UserController(userService);
 
-router.get("/random", fetchRandomUser);
-
-router.get("/", async (req, res) => {
-  const users = await userController.findAllUser();
-  return res.status(200).send({ users });
-});
+router.get("/random", asyncHandler(userController.fetchRandomUser));
+router.get("/", asyncHandler(userController.getUsers));
 
 export default router;

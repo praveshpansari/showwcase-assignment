@@ -1,5 +1,4 @@
-import container from "./container";
-import express, { NextFunction, Request, Response } from "express";
+import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { errorHandler } from "./middleware/errorHandler";

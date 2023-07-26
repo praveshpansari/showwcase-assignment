@@ -1,4 +1,3 @@
-import AuthController from "./controllers/auth.controller";
 import AuthService from "./services/auth.service";
 import UserService from "./services/user.service";
 
@@ -18,15 +17,7 @@ class Container {
 }
 
 const container = new Container();
-
-const authService = new AuthService();
-const userService = new UserService();
-
-container.register(
-  "AuthController",
-  new AuthController(authService, userService)
-);
-container.register("AuthService", authService);
-container.register("UserService", userService);
+container.register("AuthService", new AuthService());
+container.register("UserService", new UserService());
 
 export default container;
