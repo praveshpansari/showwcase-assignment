@@ -1,6 +1,9 @@
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
-const secretKey = process.env.SECRET || "defaultKey";
+dotenv.config();
+
+const secretKey = process.env.SECRET || "default-secret";
 
 export default class AuthService {
   generateToken = (payload: any): string => {

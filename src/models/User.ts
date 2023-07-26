@@ -1,5 +1,5 @@
 import { Model, DataTypes, Optional } from "sequelize";
-import { sequelize } from "../utils/db";
+import { sequelize } from "../utils/sequelize";
 import bcrypt from "bcrypt";
 
 export interface UserAttributes {
