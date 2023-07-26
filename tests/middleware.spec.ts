@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
-import { errorHandler } from "./errorHandler";
+import { errorHandler } from "../src/middleware/errorHandler";
 import { ValidationError } from "sequelize";
-import { requestLogger } from "./requestLogger";
-import authenticateUser from "./authenticateUser";
+import { requestLogger } from "../src/middleware/requestLogger";
+import authenticateUser from "../src/middleware/authenticateUser";
 
 let mockReq: Partial<Request>;
 let mockRes: Partial<Response>;

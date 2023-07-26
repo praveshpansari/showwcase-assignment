@@ -3,7 +3,7 @@ import { sequelize } from "../utils/db";
 import bcrypt from "bcrypt";
 
 export interface UserAttributes {
-  id: number;
+  id?: number;
   email: string;
   password: string;
 }

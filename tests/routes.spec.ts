@@ -1,13 +1,13 @@
 import request from "supertest";
 import { Sequelize } from "sequelize";
 
-jest.mock("../utils/db.ts", () => {
+jest.mock("../src/utils/db.ts", () => {
   return { sequelize: new Sequelize({ dialect: "postgres" }) };
 });
 
-import User from "../models/User";
-import server from "../server";
-import AuthService from "../services/auth.service";
+import User from "../src/models/User";
+import server from "../src/server";
+import AuthService from "../src/services/auth.service";
 
 afterAll(async () => {
   server.close();

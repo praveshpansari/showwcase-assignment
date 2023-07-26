@@ -23,7 +23,7 @@ export default class UserService {
     return users;
   };
 
-  getUserById = async (id: string): Promise<User | null> => {
+  getUserById = async (id: number): Promise<User | null> => {
     const user = await User.findByPk(id);
     return user;
   };
