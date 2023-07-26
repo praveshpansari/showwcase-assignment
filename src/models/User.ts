@@ -55,7 +55,7 @@ User.init(
   },
   {
     sequelize,
-    tableName: "users",
+    tableName: "Users",
   }
 );
 

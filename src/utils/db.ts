@@ -5,7 +5,6 @@ export const sequelize = new Sequelize("showwcase", "admin", "admin", {
   dialect: "postgres",
 });
 
-// Test the connection
 sequelize
   .authenticate()
   .then(() => {
