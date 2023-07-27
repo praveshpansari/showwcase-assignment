@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 
-jest.mock("../src/utils/db.ts", () => {
+jest.mock("../src/utils/sequelize.ts", () => {
   return { sequelize: new Sequelize({ dialect: "postgres" }) };
 });
 
